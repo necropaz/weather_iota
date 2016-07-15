@@ -1,5 +1,6 @@
 import sys
 import time
+import json
 from sense_hat import SenseHat
 from iota import iota
 
@@ -35,7 +36,7 @@ class weathernode:
 			self.error="Can not run Weather Node. "+str(e)
 			return None
 
-	def execute(self, message):
+	def execute(self, jsonData):
 		try:
 			if self.jsonData['command']=="getWeather" :
 				print("Weather request recived")
@@ -58,6 +59,7 @@ class weathernode:
 		except Exception as e:
 			self.error="Can't execute command. "+str(e)
 			return None
+
 	def readWeather(self):
 		self.temperature = self.sense.temperature()
 		self.humidity = self.sense.get_humidity()
