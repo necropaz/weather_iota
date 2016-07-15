@@ -8,7 +8,7 @@ setup(
 	author='Necropaz',
 	author_email='jnecropaz@gmail.com',
 	license='MIT',
-	packages=['iota'],
+	packages=['weather_iota'],
 	download_url = 'https://github.com/necropaz/weather_node/tarball/v0.1',
 	keywords = ['iota', 'crypto', 'weather'],
 	classifiers = [],

@@ -1,7 +1,7 @@
 import sys
 import time
 import json
-from sense_hat import SenseHat
+#from sense_hat import SenseHat
 from iota import iota
 
 class weathernode:
@@ -42,7 +42,7 @@ class weathernode:
 				print("Weather request recived")
 				if self.sense!=None:
 					self.message=readWeather()
-				else
+				else:
 					self.message="{'Temperature':'"+self.temperature+"', 'Humidity':'"+self.humidity+"','Pressure':'"+self.pressure+"'}"
 				self.responsAdress=self.jsonData['address']				
 				print(self.message)
@@ -64,7 +64,7 @@ class weathernode:
 		self.temperature = self.sense.temperature()
 		self.humidity = self.sense.get_humidity()
 		self.pressure = self.sense.get_pressure()
-		return "{'Temperature':'"+str(self.temperature)+"', 'Humidity':'"+str(self.humidity)+"','Pressure':'"+str(self.pressure)"'}"
+		return "{'Temperature':'"+str(self.temperature)+"', 'Humidity':'"+str(self.humidity)+"','Pressure':'"+str(self.pressure)+"'}"
 
 
 	def scrollText(self,message):
