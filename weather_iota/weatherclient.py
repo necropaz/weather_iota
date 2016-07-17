@@ -10,32 +10,37 @@ class weatherclient:
 		self.node=iota(seed)
 		self.txCounter=self.node.txCounter
 	
-	def requestWeather(self, respondAddress):
-		message="{'command':'getWeather','address':'"+respondAddress+"'}"
+	def requestWeather(self):
 		try:
-			self.node.sendMessage(self.seed, self.address, self.message, '1')
-			print("Weather Node is Running.")
-			print("Waiting until the Weatehr Node recived a request.")
+			print("Take a coffee, I am sendig the request...")
+			self.respondAddress=self.node.genAddress()
+			self.message="{'command':'getWeather','address':'"+self.respondAddress+"'}"
+			self.node.searchNewTransaction()
+			self.node.sendMessage(self.address, self.message, '1')
+			print("Waiting until weather Infos recived.")
 			self.txCounter=self.node.txCounter
 			while True:
 				time.sleep(5)
 				self.transaction=self.node.searchNewTransaction()
 				if self.txCounter+2==self.node.txCounter:
 					break
-			self.message=self.node.searchMessage(transaction).replace('\'','\"')
-			self.jsonData=json.loads(self.message)
-			execute(self.jsonData)
+			self.message=self.node.searchMessage(self.transaction).replace('\'','\"')
+			print(self.message)
+			return self.message
 		except Exception as e:
 			self.error="Can not run Weather Node. "+str(e)
+			print(self.error)
 			return None
 
 	def sendPromotion(self, message):
-		message="{'command':'sendPromotion','promotion':'"+message+"'}"
+		self.message="{'command':'sendPromotion','promotion':'"+message+"'}"
 		try:
-			self.node.sendMessage(self.seed, self.address, self.message, '1')
+			print("Take a coffee, I am sendig the request...")
+			self.node.sendMessage(self.address, self.message, '1')
 			print("Succesfully send Promotion.")
 		except Exception as e:
 			self.error="Can not send a Promotion. " +str(e)
+			print(self.error)
 			return None
 
 

@@ -20,37 +20,44 @@ class weathernode:
 		self.txCounter=self.node.txCounter
 	
 	def run(self):
-		try:
-			print("Weather Node is Running.")
-			print("Waiting until the Weatehr Node recived a request.")
-			self.txCounter=self.node.txCounter
-			while True:
-				time.sleep(5)
-				self.transaction=self.node.searchNewTransaction()
-				if self.txCounter!=self.node.txCounter:
-					break
-			self.message=self.node.searchMessage(transaction).replace('\'','\"')
-			self.jsonData=json.loads(self.message)
-			execute(self.jsonData)
-		except Exception as e:
-			self.error="Can not run Weather Node. "+str(e)
-			return None
+		while True:
+			try:
+				print("Waiting until the Weatehr Node reciving a request...")
+				self.txCounter=self.node.txCounter
+				while True:
+					self.transaction=self.node.searchNewTransaction()
+					if self.txCounter!=self.node.txCounter:
+						break
+					time.sleep(5)
+				while True:
+					self.persistence=self.node.checkConformation(self.transaction)
+					if self.presistence==100:
+						break
+					time.sleep(5)
+				self.message=self.node.searchMessage(self.transaction)
+				print(self.message)
+				self.message=self.message.replace('\'','\"')
+				self.jsonData=json.loads(self.message)
+				self.execute(self.jsonData)
+			except Exception as e:
+				print("Can not run Weather Node. "+str(e))
+				return None
 
 	def execute(self, jsonData):
 		try:
 			if self.jsonData['command']=="getWeather" :
-				print("Weather request recived")
+				print("Weather request recived.")
 				if self.sense!=None:
 					self.message=readWeather()
 				else:
 					self.message="{'Temperature':'"+self.temperature+"', 'Humidity':'"+self.humidity+"','Pressure':'"+self.pressure+"'}"
-				self.responsAdress=self.jsonData['address']				
-				print(self.message)
+				self.responsAdress=self.jsonData['address']
 				self.node.sendMessage(self.responsAdress, self.message, '0')
-				print("Succesfully send request.")
+				print("Succesfully send Weather Infos back to:"+responsAdress)
 			elif jsonData['command']=="sendPromotion":
-				print("Promotion request recived")
+				print("Promotion request recived.")
 				if self.sense!=None:
+					print("Promotion Text:"+jsonData['promotion'])
 					scrollText(jsonData['promotion'])
 				else:
 					print("Promotion Text:"+jsonData['promotion'])
