@@ -25,7 +25,7 @@ To install the package it is very easy if you have installed pip.
 $ sudo pip install weather_iota
 ```
 
-### weathernode
+## weathernode
 The IOTA Weather Node waiting until a client send a transaction with >0 IOTAs and a message.
 With the message the client tell the node what is his request and an address on which the node can send his answer.
 So can be send a command is arrived over the IOTA Protocol.
@@ -90,7 +90,7 @@ Direction |Parameters | Type | Required | Description
 `input` |`transaction` | string | Yes | Hash of the transaction from which you wanna read the sender address.
 `return` |`address` | string | Yes | Sender address of the transaction.
 
-### weather client
+## weather client
 
 
 ### running instance
