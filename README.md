@@ -22,7 +22,8 @@ for more fun:
 To install the package it is very easy if you have installed pip.
 
 ```ShellSession
-$ sudo pip install weather_iota
+$ sudo pip install -i https://testpypi.python.org/pypi iota
+$ sudo pip install -i https://testpypi.python.org/pypi weather_iota
 ```
 
 ## Weathernode
