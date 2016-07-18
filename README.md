@@ -63,48 +63,47 @@ print("End Iota Weather Node!")
 
 #### `weathernode( seed, temperature=None, humidity=None, pressure=None, senseHAT=True)`
 
-Send a message to a specified Adress.
+Make a instance of the iota weathernode.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
 `input` |`seed` | string | Yes | 81-char encoded string which contains the accounts seed. The seed must be correctly encoded: only uppercase latin letters and 9’s. No other characters are allowed.
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`input` |`message` | string | Yes | The message which added to the transation.
-`input` |`value` | string | Yes | string the quantity of IOTA’s which should be transferred.
+`input` |`temperature` | string | No | You can input here a temperature for simulation. Default it is None.
+`input` |`humidity` | string | No | You can input here a humidity for simulation. Default it is None.
+`input` |`pressure` | string | No | You can input here a pressure for simulation. Default it is None.
+`input` |`senseHAT` | bool | No | If you will simulate the SenseHAT you have to type senseHAT=False. Default it is True.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 #### `run()`
 
-Send a message to a specified Address.
+Run the instance. Wait until a request is recived and is confirmed 100%.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`seed` | string | Yes | 81-char encoded string which contains the accounts seed. The seed must be correctly encoded: only uppercase latin letters and 9’s. No other characters are allowed.
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`input` |`message` | string | Yes | The message which added to the transation.
-`input` |`value` | string | Yes | string the quantity of IOTA’s which should be transferred.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 #### `execute(jsonData)`
 
-Send a request to the IOTA Node and return the answer.
+Execute the recived command.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`command` | string | Yes | The command which will made the request.
-`return` |`jsonData` | string | Yes | The answer from the request in JSON.
+`input` |`jsonData` | string | Yes | The message which is recived in json format.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 #### `readWeather()`
+Read the weather data out of the raspberry pi.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`return` |`transaction` | string | Yes | Hash of the last transaction.
+`return` |`weatherinfo` | string | Yes | The weather infos a string which are readed from the Sense HAT.
 
 #### `scrollText(message)`
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`transaction` | string | Yes | Hash of the transaction from which you wanna read the sender address.
-`return` |`address` | string | Yes | Sender address of the transaction.
+`input` |`message` | string | Yes | The promotion text which the client send you.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 ## Weather client
 
