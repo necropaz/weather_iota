@@ -43,6 +43,22 @@ node=weathernode("HIERCOMESMYSEED", temperature=100, humidity= 54, pressure=1024
 node.run()
 ```
 
+### Testing
+You can run this script to test the weather node:
+```Python
+import sys
+import json
+import time
+import os
+from weather_iota import weathernode
+
+seed=raw_input("Enter the seed of the IOTA Weather Node? ")
+
+weather=weathernode(seed, temperature="32",humidity="50",pressure="1013", senseHAT=False)
+weather.run()
+print("End Iota Weather Node!")
+```
+
 ### weathernode class
 
 #### `weathernode( seed, temperature=None, humidity=None, pressure=None, senseHAT=True)`
@@ -104,6 +120,31 @@ from weather_iota import weatherclient
 client=weatherclient("HIERCOMESMYSEED", "THEADDRESSOFTHEIOTAWEATHERNODE")
 client.requestWeather()
 client.sendPromotion("Here comes my promotion!")
+```
+### Testing
+You can run this script to test the weather client. There is a test instance running on a VPS Server you can use this address:
+```Python
+import sys
+import json
+import time
+import os
+from weather_iota import weatherclient
+
+address=raw_input("The address of the Weather Node? ")
+seed=raw_input("The seed of you Weather Client? ")
+char=raw_input("If you will send a weather request tip w, if you wanna send a promotion tip p.? [w/p]? ")
+
+client=weatherclient(seed, address)
+
+if char=='w':
+	client.requestWeather()
+
+elif char=='p':
+	message=raw_input("What for a promotion you wanna send? ")
+	client.sendPromotion(message)
+
+else:
+	print("Your Input is not [r/p]")
 ```
 
 ### weatherclient class
