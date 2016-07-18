@@ -29,9 +29,10 @@ class weathernode:
 					if self.txCounter!=self.node.txCounter:
 						break
 					time.sleep(5)
+				print("Waiting until transaction is confirmed...")
 				while True:
-					self.persistence=self.node.checkConformation(self.transaction)
-					if self.presistence==100:
+					self.persistence=self.node.checkConfirmed()
+					if self.persistence==100:
 						break
 					time.sleep(5)
 				self.message=self.node.searchMessage(self.transaction)
@@ -39,6 +40,7 @@ class weathernode:
 				self.message=self.message.replace('\'','\"')
 				self.jsonData=json.loads(self.message)
 				self.execute(self.jsonData)
+				print("I have succesfully send the weather infos back.")
 			except Exception as e:
 				print("Can not run Weather Node. "+str(e))
 				return None
