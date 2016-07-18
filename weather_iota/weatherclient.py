@@ -14,7 +14,7 @@ class weatherclient:
 		try:
 			print("Take a coffee, I am sendig the request...")
 			self.respondAddress=self.node.genAddress()
-			print("I have generate you an address where you will recive the weather infos."+respondAddress)
+			print("I have generate you an address where you will recive the weather infos."+self.respondAddress)
 			print("I'm sending now the request to the weather node...")
 			self.message="{'command':'getWeather','address':'"+self.respondAddress+"'}"
 			self.node.searchNewTransaction()
