@@ -25,13 +25,13 @@ To install the package it is very easy if you have installed pip.
 $ sudo pip install weather_iota
 ```
 
-## weathernode
+## Weathernode
 The IOTA Weather Node waiting until a client send a transaction with >0 IOTAs and a message.
 With the message the client tell the node what is his request and an address on which the node can send his answer.
 So can be send a command is arrived over the IOTA Protocol.
 After this he read the Weather info from the Sense HAT and send them back or just show a promotion on his 8x8 LED Matrix.
 
-### running instance
+### Running an instance
 - First you have to import the package 
 ```Python
 from weather_iota import weathernode
@@ -59,7 +59,7 @@ weather.run()
 print("End Iota Weather Node!")
 ```
 
-### weathernode class
+### Weathernode class
 
 #### `weathernode( seed, temperature=None, humidity=None, pressure=None, senseHAT=True)`
 
@@ -106,10 +106,10 @@ Direction |Parameters | Type | Required | Description
 `input` |`transaction` | string | Yes | Hash of the transaction from which you wanna read the sender address.
 `return` |`address` | string | Yes | Sender address of the transaction.
 
-## weather client
+## Weather client
 
 
-### running instance
+### Running an instance
 - First you have to import the package 
 ```Python
 from weather_iota import weatherclient
@@ -122,7 +122,7 @@ client.requestWeather()
 client.sendPromotion("Here comes my promotion!")
 ```
 ### Testing
-You can run this script to test the weather client. There is a test instance running on a VPS Server you can use this address:
+You can run this script to test the weather client. There is a test instance running on a VPS Server you can use this address: DCSFTNCWDPUMJJQHIEL9VJVOIHMVLFEYQTEYNYOWHVUQ9PZWOXKZEXSUSWUQOLMSHFANN9PTCBTLUVLZIYOFOCLZJF
 ```Python
 import sys
 import json
@@ -147,7 +147,7 @@ else:
 	print("Your Input is not [r/p]")
 ```
 
-### weatherclient class
+### Weatherclient class
 
 #### `weatherclient( seed, address)`
 
