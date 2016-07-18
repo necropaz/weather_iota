@@ -150,40 +150,29 @@ else:
 
 #### `weatherclient( seed, address)`
 
-Send a message to a specified Adress.
+Make a instance of the iota weatherclient.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
 `input` |`seed` | string | Yes | 81-char encoded string which contains the accounts seed. The seed must be correctly encoded: only uppercase latin letters and 9’s. No other characters are allowed.
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`input` |`message` | string | Yes | The message which added to the transation.
-`input` |`value` | string | Yes | string the quantity of IOTA’s which should be transferred.
+`input` |`address` | string | Yes | The address from the weather node.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 #### `requestWeather()`
 
-Send a message to a specified Address.
+Send a weather request to the node and wait on the answer.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`seed` | string | Yes | 81-char encoded string which contains the accounts seed. The seed must be correctly encoded: only uppercase latin letters and 9’s. No other characters are allowed.
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`input` |`message` | string | Yes | The message which added to the transation.
-`input` |`value` | string | Yes | string the quantity of IOTA’s which should be transferred.
+`return` |`weatherinfos` | string | Yes | The weather infos which are recived from the weather node.
 
-#### `sendPromotion(message)`
+#### `sendPromotion(promotion)`
 
-Send a request to the IOTA Node and return the answer.
+Send a promotion to the weather node.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`command` | string | Yes | The command which will made the request.
-`return` |`jsonData` | string | Yes | The answer from the request in JSON.
-
-#### `execute(jsonData)`
-
-Direction |Parameters | Type | Required | Description
------------- |------------ | ------------- | ------------- | -------------
-`input` |`address` | string | Yes | 81-char long address of the recipient of a transaction.
-`return` |`transaction` | string | Yes | Hash of the last transaction.
+`input` |`promotion` | string | Yes | The promotion text which you wanna send.
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
 
 
