@@ -128,7 +128,7 @@ client.requestWeather()
 client.sendPromotion("Here comes my promotion!")
 ```
 ### Testing client
-You can run this script to test the weather client. There is a test instance running on a VPS Server you can use this address: DCSFTNCWDPUMJJQHIEL9VJVOIHMVLFEYQTEYNYOWHVUQ9PZWOXKZEXSUSWUQOLMSHFANN9PTCBTLUVLZIYOFOCLZJF
+You can run this script to test the weather client. There is a test instance running on a VPS Server you can use this address: WBBBBDPJBNICRLGABEKBAKVUHASOUIWIBONMYQLRVPV9PEYRSSSYIJMIOBFEDMQPVZCMPNITETTZDUCQL
 ```Python
 import sys
 import json
