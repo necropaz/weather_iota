@@ -19,7 +19,7 @@ for more fun:
 
 ## Installation
 If you already have installed pip then you can skip this point and can directly install the package with pip.
-For other OS go to: [installing pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py)
+For other OS go to: [installing pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py).
 In Ubuntu you can do this:
 ```ShellSession
 $ sudo apt-get install python-pip python-dev build-essential 
@@ -83,7 +83,7 @@ There is an txCounter implemented in the weather node so you can check the actua
 Make a instance of the iota weathernode.
 
 Direction |Parameters | Type | Required | Description
------------- |------------ | ------------- | ------------- | -------------
+------------ |-----------	 | ------------- | ------------- | -------------	
 `input` |`seed` | string | Yes | 81-char encoded string which contains the accounts seed. The seed must be correctly encoded: only uppercase latin letters and 9’s. No other characters are allowed.
 `input` |`temperature` | string | No | You can input here a temperature for simulation. Default it is None.
 `input` |`humidity` | string | No | You can input here a humidity for simulation. Default it is None.
@@ -95,15 +95,15 @@ Direction |Parameters | Type | Required | Description
 Run the instance. Wait until a request is recived and is confirmed 100%. Then execute the recived command.
 
 Direction |Parameters | Type | Required | Description
------------- |------------ | ------------- | ------------- | -------------
+------------ |-----------	| ------------- | ------------- |---					
 
 #### `execute(jsonData)`
 
 Execute the recived command.
 
 Direction |Parameters | Type | Required | Description
------------- |------------ | ------------- | ------------- | -------------
-`input` |`jsonData` | string | Yes | The message which is recived in json format.
+------------ |------------ | ------------- | ------------- | :-------------:							
+`input` |`jsonData` | string | Yes | The message which is recived in json format.                                                      
 
 #### `readWeather()`
 Read the weather data out of the raspberry pi.
@@ -192,7 +192,7 @@ Send a promotion to the weather node.
 
 Direction |Parameters | Type | Required | Description
 ------------ |------------ | ------------- | ------------- | -------------
-`input` |`promotion` | string | Yes | The promotion text which you wanna send.
-`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.
+`input` |`promotion` | string | Yes | The promotion text which you wanna send.								
+`return` |`ErrorMessage` | string | Yes | Will give you back an error message if it fails.						
 
 
