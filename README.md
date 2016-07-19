@@ -56,9 +56,6 @@ node.run()
 You can run this script to test the weather node:
 ```Python
 import sys
-import json
-import time
-import os
 from weather_iota import weathernode
 
 seed=raw_input("Enter the seed of the IOTA Weather Node? ")
